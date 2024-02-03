@@ -327,7 +327,6 @@ public class UrlValidator implements Serializable {
         //rightmost hostname will never start with a digit.
         if (hostname) {
             // LOW-TECH FIX FOR VALIDATOR-202
-            // TODO: Rewrite to use ArrayList and .add semantics: see VALIDATOR-203
             final char[] chars = hostIP.toCharArray();
             int size = 1;
             for (final char element : chars) {

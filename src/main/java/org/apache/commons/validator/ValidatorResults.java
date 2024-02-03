@@ -27,7 +27,6 @@ import java.util.Set;
  * This contains the results of a set of validation rules processed
  * on a JavaBean.
  */
-//TODO mutable non-private fields
 public class ValidatorResults implements Serializable {
 
     private static final long serialVersionUID = -2709911078904924839L;

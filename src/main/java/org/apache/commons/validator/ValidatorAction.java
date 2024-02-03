@@ -144,7 +144,6 @@ public class ValidatorAction implements Serializable {
      * @throws ValidatorException
      */
     boolean executeValidationMethod(final Field field,
-            // TODO What is this the correct value type?
             // both ValidatorAction and Validator are added as parameters
             final Map<String, Object> params, final ValidatorResults results, final int pos) throws ValidatorException {
 
@@ -192,7 +191,6 @@ public class ValidatorAction implements Serializable {
                 return false;
             }
 
-            // TODO This catch block remains for backward compatibility. Remove
             // this for Validator 2.0 when exception scheme changes.
         } catch (final Exception e) {
             if (e instanceof ValidatorException) {
@@ -444,9 +442,6 @@ public class ValidatorAction implements Serializable {
     /**
      * Load the JavaScript function specified by the given path. For this implementation, the <code>jsFunction</code> property should contain a fully qualified
      * package and script name, separated by periods, to be loaded from the class loader that created this instance.
-     *
-     * TODO if the path begins with a '/' the path will be intepreted as absolute, and remain unchanged. If this fails then it will attempt to treat the path as
-     * a file path. It is assumed the script ends with a '.js'.
      */
     protected synchronized void loadJavascriptFunction() {
 
@@ -587,7 +582,6 @@ public class ValidatorAction implements Serializable {
             return null;
         }
         final StringBuilder buffer = new StringBuilder();
-        // TODO encoding
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
             String line = null;
             while ((line = reader.readLine()) != null) {

@@ -49,7 +49,6 @@ import org.xml.sax.SAXException;
  * release.
  * </p>
  */
-//TODO mutable non-private fields
 public class ValidatorResources implements Serializable {
 
     private static final long serialVersionUID = -8203745881446239554L;

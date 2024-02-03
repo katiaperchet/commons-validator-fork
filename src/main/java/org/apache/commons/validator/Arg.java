@@ -33,7 +33,6 @@ import java.io.Serializable;
  * </p>
  * <p>Instances of this class are configured with an &lt;arg&gt; xml element.</p>
  */
-//TODO mutable non-private fields
 public class Arg implements Cloneable, Serializable {
 
     private static final long serialVersionUID = -8922606779669839294L;
