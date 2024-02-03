@@ -64,7 +64,7 @@ public abstract class AbstractNumberValidator extends AbstractFormatValidator {
      * @param allowFractions {@code true} if fractions are
      *        allowed or {@code false} if integers only.
      */
-    public AbstractNumberValidator(final boolean strict, final int formatType, final boolean allowFractions) {
+    protected AbstractNumberValidator(final boolean strict, final int formatType, final boolean allowFractions) {
         super(strict);
         this.allowFractions = allowFractions;
         this.formatType = formatType;
@@ -216,7 +216,7 @@ public abstract class AbstractNumberValidator extends AbstractFormatValidator {
     @Override
     public boolean isValid(final String value, final String pattern, final Locale locale) {
         final Object parsedValue = parse(value, pattern, locale);
-        return parsedValue == null ? false : true;
+        return parsedValue != null;
     }
 
     /**
