@@ -128,7 +128,7 @@ public class UrlValidator implements Serializable {
             "(?::" + USERINFO_CHARS_REGEX + "*)?@"; // colon and password may be absent
 
     private static final String AUTHORITY_REGEX =
-            "(?:\\[(" + IPV6_REGEX + ")\\]|(?:(?:" + USERINFO_FIELD_REGEX + ")?([" + AUTHORITY_CHARS_REGEX + "]*)))(?::(\\d*))?(.*)?";
+            "(?:\\[(" + IPV6_REGEX + ")\\]|(?:(?:" + USERINFO_FIELD_REGEX + ")?([" + AUTHORITY_CHARS_REGEX + "]*)))(?::(\\d*))?(.+)?";
     //             1                                 e.g. user:pass@           2                                       3       4
     private static final Pattern AUTHORITY_PATTERN = Pattern.compile(AUTHORITY_REGEX);
 
