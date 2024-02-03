@@ -44,10 +44,10 @@ import org.apache.commons.validator.routines.InetAddressValidator;
 public class EmailValidator {
 
     private static final String SPECIAL_CHARS = "\\p{Cntrl}\\(\\)<>@,;:'\\\\\\\"\\.\\[\\]";
-    private static final String VALID_CHARS = "[^\\s" + SPECIAL_CHARS + "]";
+    private static final String VALID_CHARS = "[^\\s" + SPECIAL_CHARS + "]+";
     private static final String QUOTED_USER = "(\"[^\"]*\")";
-    private static final String ATOM = VALID_CHARS + '+';
-    private static final String WORD = "((" + VALID_CHARS + "|')+|" + QUOTED_USER + ")";
+    private static final String ATOM = VALID_CHARS;
+    private static final String WORD = "(?:" + ATOM + "+|" + QUOTED_USER + ")";
 
 // NOT USED   private static final Pattern LEGAL_ASCII_PATTERN = Pattern.compile("^\\p{ASCII}+$");
 // NOT USED   private static final Pattern EMAIL_PATTERN = Pattern.compile("^(.+)@(.+)$");
@@ -209,7 +209,7 @@ public class EmailValidator {
      */
     protected String stripComments(final String emailStr) {
         String result = emailStr;
-        final String commentPat = "^((?:[^\"\\\\]|\\\\.)*(?:\"(?:[^\"\\\\]|\\\\.)*\"(?:[^\"\\\\]|\111111\\\\.)*)*)\\((?:[^()\\\\]|\\\\.)*\\)/";
+        final String commentPat = "^(?>[^\"\\\\]+|\\\\.)*(?>\"(?>[^\"\\\\]+|\\\\.)*\"(?>[^\"\\\\]|\\\\.)*)(?>\\((?>[^()\\\\]+|\\\\.)*\\))";
         final Pattern commentMatcher = Pattern.compile(commentPat);
 
         while (commentMatcher.matcher(result).matches()) {
