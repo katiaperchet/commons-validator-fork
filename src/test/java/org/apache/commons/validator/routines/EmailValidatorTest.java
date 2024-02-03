@@ -142,7 +142,7 @@ public class EmailValidatorTest {
      * Tests the e-mail validation.
      */
     @Test
-    public void testEmail() {
+    void testEmail() {
         assertTrue(validator.isValid("jsmith@apache.org"));
     }
 
@@ -153,7 +153,7 @@ public class EmailValidatorTest {
      * any dots)
      */
     @Test
-    public void testEmailAtTLD() {
+    void testEmailAtTLD() {
         final EmailValidator val = EmailValidator.getInstance(false, true);
         assertTrue(val.isValid("test@com"));
     }
@@ -162,7 +162,7 @@ public class EmailValidatorTest {
      * Tests the e-mail validation.
      */
     @Test
-    public void testEmailExtension() {
+    void testEmailExtension() {
         assertTrue(validator.isValid("jsmith@apache.org"));
 
         assertTrue(validator.isValid("jsmith@apache.com"));
@@ -187,7 +187,7 @@ public class EmailValidatorTest {
      */
     @Disabled("VALIDATOR-267")
     @Test
-    public void testEmailFromPerl() {
+    void testEmailFromPerl() {
         int errors = 0;
         for (final ResultPair element : testEmailFromPerl) {
             final String item = element.item;
@@ -205,7 +205,7 @@ public class EmailValidatorTest {
      * Test that @localhost and @localhost.localdomain addresses are declared as valid when requested.
      */
     @Test
-    public void testEmailLocalhost() {
+    void testEmailLocalhost() {
         // Check the default is not to allow
         final EmailValidator noLocal = EmailValidator.getInstance(false);
         final EmailValidator allowLocal = EmailValidator.getInstance(true);
@@ -223,7 +223,7 @@ public class EmailValidatorTest {
      * Write this test according to parts of RFC, as opposed to the type of character that is being tested.
      */
     @Test
-    public void testEmailUserName() {
+    void testEmailUserName() {
 
         assertTrue(validator.isValid("joe1blow@apache.org"));
 
@@ -356,7 +356,7 @@ public class EmailValidatorTest {
      * Tests the e-mail validation with an RCS-noncompliant character in the address.
      */
     @Test
-    public void testEmailWithBogusCharacter() {
+    void testEmailWithBogusCharacter() {
 
         assertFalse(validator.isValid("andy.noble@\u008fdata-workshop.com"));
 
@@ -382,7 +382,7 @@ public class EmailValidatorTest {
      * Tests the email validation with commas.
      */
     @Test
-    public void testEmailWithCommas() {
+    void testEmailWithCommas() {
         assertFalse(validator.isValid("joeblow@apa,che.org"));
 
         assertFalse(validator.isValid("joeblow@apache.o,rg"));
@@ -395,7 +395,7 @@ public class EmailValidatorTest {
      * Tests the email validation with ASCII control characters. (i.e. ASCII chars 0 - 31 and 127)
      */
     @Test
-    public void testEmailWithControlChars() {
+    void testEmailWithControlChars() {
         for (char c = 0; c < 32; c++) {
             assertFalse(validator.isValid("foo" + c + "bar@domain.com"), "Test control char " + (int) c);
         }
@@ -408,7 +408,7 @@ public class EmailValidatorTest {
      * </p>
      */
     @Test
-    public void testEmailWithDash() {
+    void testEmailWithDash() {
         assertTrue(validator.isValid("andy.noble@data-workshop.com"));
 
         assertFalse(validator.isValid("andy-noble@data-workshop.-com"));
@@ -422,7 +422,7 @@ public class EmailValidatorTest {
      * Tests the e-mail validation with a dot at the end of the address.
      */
     @Test
-    public void testEmailWithDotEnd() {
+    void testEmailWithDotEnd() {
         assertFalse(validator.isValid("andy.noble@data-workshop.com."));
     }
 
@@ -430,7 +430,7 @@ public class EmailValidatorTest {
      * Tests the email validation with numeric domains.
      */
     @Test
-    public void testEmailWithNumericAddress() {
+    void testEmailWithNumericAddress() {
         assertTrue(validator.isValid("someone@[216.109.118.76]"));
         assertTrue(validator.isValid("someone@yahoo.com"));
     }
@@ -439,7 +439,7 @@ public class EmailValidatorTest {
      * VALIDATOR-296 - A / or a ! is valid in the user part, but not in the domain part
      */
     @Test
-    public void testEmailWithSlashes() {
+    void testEmailWithSlashes() {
         assertTrue(validator.isValid("joe!/blow@apache.org"), "/ and ! valid in username");
         assertFalse(validator.isValid("joe@ap/ache.org"), "/ not valid in domain");
         assertFalse(validator.isValid("joe@apac!he.org"), "! not valid in domain");
@@ -449,7 +449,7 @@ public class EmailValidatorTest {
      * Tests the email validation with spaces.
      */
     @Test
-    public void testEmailWithSpaces() {
+    void testEmailWithSpaces() {
         assertFalse(validator.isValid("joeblow @apache.org"));
 
         assertFalse(validator.isValid("joeblow@ apache.org"));
@@ -471,19 +471,19 @@ public class EmailValidatorTest {
     }
 
     @Test
-    public void testVALIDATOR_278() {
+    void testVALIDATOR_278() {
         assertFalse(validator.isValid("someone@-test.com"));// hostname starts with dash/hyphen
         assertFalse(validator.isValid("someone@test-.com"));// hostname ends with dash/hyphen
     }
 
     @Test
-    public void testVALIDATOR_315() {
+    void testVALIDATOR_315() {
         assertFalse(validator.isValid("me@at&t.net"));
         assertTrue(validator.isValid("me@att.net")); // Make sure TLD is not the cause of the failure
     }
 
     @Test
-    public void testValidator235() {
+    void testValidator235() {
         final String version = System.getProperty("java.version");
         if (version.compareTo("1.6") < 0) {
             System.out.println("Cannot run Unicode IDN tests");
@@ -498,7 +498,7 @@ public class EmailValidatorTest {
     }
 
     @Test
-    public void testValidator293() {
+    void testValidator293() {
         assertTrue(validator.isValid("abc-@abc.com"));
         assertTrue(validator.isValid("abc_@abc.com"));
         assertTrue(validator.isValid("abc-def@abc.com"));
@@ -507,13 +507,13 @@ public class EmailValidatorTest {
     }
 
     @Test
-    public void testValidator359() {
+    void testValidator359() {
         final EmailValidator val = EmailValidator.getInstance(false, true);
         assertFalse(val.isValid("test@.com"));
     }
 
     @Test
-    public void testValidator365() {
+    void testValidator365() {
         assertFalse(validator.isValid("Loremipsumdolorsitametconsecteturadipiscingelit.Nullavitaeligulamattisrhoncusnuncegestasmattisleo."
                 + "Donecnonsapieninmagnatristiquedictumaacturpis.Fusceorciduifacilisisutsapieneuconsequatpharetralectus."
                 + "Quisqueenimestpulvinarutquamvitaeportamattisex.Nullamquismaurisplaceratconvallisjustoquisportamauris."
@@ -540,18 +540,18 @@ public class EmailValidatorTest {
     }
 
     @Test
-    public void testValidator374() {
+    void testValidator374() {
         assertTrue(validator.isValid("abc@school.school"));
     }
 
     @Test
-    public void testValidator473_1() { // reject null DomainValidator
+    void testValidator473_1() { // reject null DomainValidator
         final IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> new EmailValidator(false, false, null));
         assertThat(thrown.getMessage(), is(equalTo("DomainValidator cannot be null")));
     }
 
     @Test
-    public void testValidator473_2() { // reject null DomainValidator with mismatched allowLocal
+    void testValidator473_2() { // reject null DomainValidator with mismatched allowLocal
         final List<DomainValidator.Item> items = new ArrayList<>();
         final IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class,
                 () -> new EmailValidator(false, false, DomainValidator.getInstance(true, items)));
@@ -559,7 +559,7 @@ public class EmailValidatorTest {
     }
 
     @Test
-    public void testValidator473_3() { // reject null DomainValidator with mismatched allowLocal
+    void testValidator473_3() { // reject null DomainValidator with mismatched allowLocal
         final List<DomainValidator.Item> items = new ArrayList<>();
         final IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class,
                 () -> new EmailValidator(true, false, DomainValidator.getInstance(false, items)));
@@ -567,7 +567,7 @@ public class EmailValidatorTest {
     }
 
     @Test
-    public void testValidator473_4() { // Show that can override domain validation
+    void testValidator473_4() { // Show that can override domain validation
         assertFalse(validator.isValidDomain("test.local"));
         final List<DomainValidator.Item> items = new ArrayList<>();
         items.add(new DomainValidator.Item(DomainValidator.ArrayType.GENERIC_PLUS, "local"));

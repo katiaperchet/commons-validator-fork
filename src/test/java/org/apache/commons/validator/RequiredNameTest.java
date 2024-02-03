@@ -29,7 +29,7 @@ import org.xml.sax.SAXException;
 /**
  * Performs Validation Test.
  */
-public class RequiredNameTest extends AbstractCommonTest {
+class RequiredNameTest extends AbstractCommonTest {
 
     /**
      * The key used to retrieve the set of validation rules from the xml file.
@@ -58,7 +58,7 @@ public class RequiredNameTest extends AbstractCommonTest {
      * Tests the required validation failure.
      */
     @Test
-    public void testRequired() throws ValidatorException {
+    void testRequired() throws ValidatorException {
         // Create bean to run test on.
         final NameBean name = new NameBean();
 
@@ -94,7 +94,7 @@ public class RequiredNameTest extends AbstractCommonTest {
      * Tests the required validation for first name.
      */
     @Test
-    public void testRequiredFirstName() throws ValidatorException {
+    void testRequiredFirstName() throws ValidatorException {
         // Create bean to run test on.
         final NameBean name = new NameBean();
         name.setFirstName("Joe");
@@ -127,7 +127,7 @@ public class RequiredNameTest extends AbstractCommonTest {
      * Tests the required validation for first name if it is blank.
      */
     @Test
-    public void testRequiredFirstNameBlank() throws ValidatorException {
+    void testRequiredFirstNameBlank() throws ValidatorException {
         // Create bean to run test on.
         final NameBean name = new NameBean();
         name.setFirstName("");
@@ -160,7 +160,7 @@ public class RequiredNameTest extends AbstractCommonTest {
      * Tests the required validation for last name.
      */
     @Test
-    public void testRequiredLastName() throws ValidatorException {
+    void testRequiredLastName() throws ValidatorException {
         // Create bean to run test on.
         final NameBean name = new NameBean();
         name.setLastName("Smith");
@@ -194,7 +194,7 @@ public class RequiredNameTest extends AbstractCommonTest {
      * Tests the required validation for last name if it is blank.
      */
     @Test
-    public void testRequiredLastNameBlank() throws ValidatorException {
+    void testRequiredLastNameBlank() throws ValidatorException {
         // Create bean to run test on.
         final NameBean name = new NameBean();
         name.setLastName("");
@@ -227,7 +227,7 @@ public class RequiredNameTest extends AbstractCommonTest {
      * Tests the required validation for first and last name.
      */
     @Test
-    public void testRequiredName() throws ValidatorException {
+    void testRequiredName() throws ValidatorException {
         // Create bean to run test on.
         final NameBean name = new NameBean();
         name.setFirstName("Joe");

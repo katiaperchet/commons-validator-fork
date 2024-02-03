@@ -316,76 +316,76 @@ public class IBANValidatorTest {
     }
 
     @Test
-    public void testGetRegexValidatortPatterns() {
+    void testGetRegexValidatortPatterns() {
         assertNotNull(VALIDATOR.getValidator("GB").getRegexValidator().getPatterns(), "GB");
     }
 
     @Test
-    public void testGetValidator() {
+    void testGetValidator() {
         assertNotNull(VALIDATOR.getValidator("GB"), "GB");
         assertNull(VALIDATOR.getValidator("gb"), "gb");
     }
 
     @Test
-    public void testHasValidator() {
+    void testHasValidator() {
         assertTrue(VALIDATOR.hasValidator("GB"), "GB");
         assertFalse(VALIDATOR.hasValidator("gb"), "gb");
     }
 
     @Test
-    public void testInValid() {
+    void testInValid() {
         for (final String f : INVALID_IBAN_FIXTURES) {
             assertFalse(VALIDATOR.isValid(f), f);
         }
     }
 
     @Test
-    public void testNull() {
+    void testNull() {
         assertFalse(VALIDATOR.isValid(null), "isValid(null)");
     }
 
     @Test
-    public void testSetDefaultValidator1() {
+    void testSetDefaultValidator1() {
         final IllegalStateException thrown = assertThrows(IllegalStateException.class, () -> VALIDATOR.setValidator("GB", 15, "GB"));
         assertThat(thrown.getMessage(), is(equalTo("The singleton validator cannot be modified")));
     }
 
     @Test
-    public void testSetDefaultValidator2() {
+    void testSetDefaultValidator2() {
         final IllegalStateException thrown = assertThrows(IllegalStateException.class, () -> VALIDATOR.setValidator("GB", -1, "GB"));
         assertThat(thrown.getMessage(), is(equalTo("The singleton validator cannot be modified")));
     }
 
     @Test
-    public void testSetValidatorLC() {
+    void testSetValidatorLC() {
         final IBANValidator validator = new IBANValidator();
         final IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> validator.setValidator("gb", 15, "GB"));
         assertThat(thrown.getMessage(), is(equalTo("Invalid country Code; must be exactly 2 upper-case characters")));
     }
 
     @Test
-    public void testSetValidatorLen_1() {
+    void testSetValidatorLen_1() {
         final IBANValidator validator = new IBANValidator();
         assertNotNull(validator.setValidator("GB", -1, ""), "should be present");
         assertNull(validator.setValidator("GB", -1, ""), "no longer present");
     }
 
     @Test
-    public void testSetValidatorLen35() {
+    void testSetValidatorLen35() {
         final IBANValidator validator = new IBANValidator();
         final IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> validator.setValidator("GB", 35, "GB"));
         assertThat(thrown.getMessage(), is(equalTo("Invalid length parameter, must be in range 8 to 34 inclusive: 35")));
     }
 
     @Test
-    public void testSetValidatorLen7() {
+    void testSetValidatorLen7() {
         final IBANValidator validator = new IBANValidator();
         final IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> validator.setValidator("GB", 7, "GB"));
         assertThat(thrown.getMessage(), is(equalTo("Invalid length parameter, must be in range 8 to 34 inclusive: 7")));
     }
 
     @Test
-    public void testSorted() {
+    void testSorted() {
         final IBANValidator validator = new IBANValidator();
         final Validator[] vals = validator.getDefaultValidators();
         assertNotNull(vals);
@@ -397,7 +397,7 @@ public class IBANValidatorTest {
     }
 
     @Test
-    public void testValid() {
+    void testValid() {
         for (final String f : VALID_IBAN_FIXTURES) {
             assertTrue(IBANCheckDigit.IBAN_CHECK_DIGIT.isValid(f), "Checksum fail: " + f);
             assertTrue(VALIDATOR.hasValidator(f), "Missing validator: " + f);

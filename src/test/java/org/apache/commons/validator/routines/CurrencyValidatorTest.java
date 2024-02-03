@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test Case for CurrencyValidator.
  */
-public class CurrencyValidatorTest {
+class CurrencyValidatorTest {
 
     private static final char CURRENCY_SYMBOL = '\u00A4';
 
@@ -47,7 +47,7 @@ public class CurrencyValidatorTest {
      * Test Format Type
      */
     @Test
-    public void testFormatType() {
+    void testFormatType() {
         assertEquals(1, CurrencyValidator.getInstance().getFormatType(), "Format Type A");
         assertEquals(AbstractNumberValidator.CURRENCY_FORMAT, CurrencyValidator.getInstance().getFormatType(), "Format Type B");
     }
@@ -56,7 +56,7 @@ public class CurrencyValidatorTest {
      * Test Invalid integer (non decimal) currency values
      */
     @Test
-    public void testIntegerInvalid() {
+    void testIntegerInvalid() {
         final CurrencyValidator validator = new CurrencyValidator(true, false);
 
         // Invalid UK - has decimals
@@ -72,7 +72,7 @@ public class CurrencyValidatorTest {
      * Test Valid integer (non-decimal) currency values
      */
     @Test
-    public void testIntegerValid() {
+    void testIntegerValid() {
         // Set the default Locale
         final Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
@@ -97,7 +97,7 @@ public class CurrencyValidatorTest {
      * Test Invalid currency values
      */
     @Test
-    public void testInvalid() {
+    void testInvalid() {
         final BigDecimalValidator validator = CurrencyValidator.getInstance();
 
         // Invalid Missing
@@ -119,7 +119,7 @@ public class CurrencyValidatorTest {
      * Test currency values with a pattern
      */
     @Test
-    public void testPattern() {
+    void testPattern() {
         // Set the default Locale
         final Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);
@@ -154,7 +154,7 @@ public class CurrencyValidatorTest {
      * Test Valid currency values
      */
     @Test
-    public void testValid() {
+    void testValid() {
         // Set the default Locale
         final Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);

@@ -28,7 +28,7 @@ import org.junit.jupiter.api.Test;
 /**
  * IBAN Check Digit Test.
  */
-public class IBANCheckDigitTest extends AbstractCheckDigitTest {
+class IBANCheckDigitTest extends AbstractCheckDigitTest {
 
     public IBANCheckDigitTest() {
         checkDigitLth = 2;
@@ -194,7 +194,7 @@ public class IBANCheckDigitTest extends AbstractCheckDigitTest {
     }
 
     @Test
-    public void testOther() throws Exception {
+    void testOther() throws Exception {
         try (BufferedReader rdr = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("IBANtests.txt"), "ASCII"))) {
             String line;
             while ((line = rdr.readLine()) != null) {

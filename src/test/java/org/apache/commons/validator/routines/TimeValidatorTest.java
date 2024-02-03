@@ -34,7 +34,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test Case for TimeValidator.
  */
-public class TimeValidatorTest {
+class TimeValidatorTest {
 
     protected static final TimeZone GMT = TimeZone.getTimeZone("GMT"); // 0 offset
     protected static final TimeZone EST = TimeZone.getTimeZone("EST"); // - 5 hours
@@ -133,7 +133,7 @@ public class TimeValidatorTest {
      * Test compare date methods
      */
     @Test
-    public void testCompare() {
+    void testCompare() {
         final int testTime = 154523;
         final int min = 100;
         final int hour = 10000;
@@ -179,7 +179,7 @@ public class TimeValidatorTest {
      * Test Invalid Dates with "locale" validation
      */
     @Test
-    public void testFormat() {
+    void testFormat() {
         // Set the default Locale
         Locale.setDefault(Locale.UK);
 
@@ -195,7 +195,7 @@ public class TimeValidatorTest {
      * Test Invalid Dates with "locale" validation
      */
     @Test
-    public void testLocaleInvalid() {
+    void testLocaleInvalid() {
         for (int i = 0; i < localeInvalid.length; i++) {
             final String text = i + " value=[" + localeInvalid[i] + "] passed ";
             final Object date = validator.validate(localeInvalid[i], Locale.US);
@@ -208,7 +208,7 @@ public class TimeValidatorTest {
      * Test Valid Dates with "locale" validation
      */
     @Test
-    public void testLocaleValid() {
+    void testLocaleValid() {
         for (int i = 0; i < localeValid.length; i++) {
             final String text = i + " value=[" + localeValid[i] + "] failed ";
             final Calendar calendar = validator.validate(localeValid[i], Locale.UK);
@@ -223,7 +223,7 @@ public class TimeValidatorTest {
      * Test Invalid Dates with "pattern" validation
      */
     @Test
-    public void testPatternInvalid() {
+    void testPatternInvalid() {
         for (int i = 0; i < patternInvalid.length; i++) {
             final String text = i + " value=[" + patternInvalid[i] + "] passed ";
             final Object date = validator.validate(patternInvalid[i], "HH-mm-ss");
@@ -236,7 +236,7 @@ public class TimeValidatorTest {
      * Test Valid Dates with "pattern" validation
      */
     @Test
-    public void testPatternValid() {
+    void testPatternValid() {
         for (int i = 0; i < patternValid.length; i++) {
             final String text = i + " value=[" + patternValid[i] + "] failed ";
             final Calendar calendar = validator.validate(patternValid[i], "HH-mm-ss");
@@ -251,7 +251,7 @@ public class TimeValidatorTest {
      * Test time zone methods.
      */
     @Test
-    public void testTimeZone() {
+    void testTimeZone() {
         // Set the default Locale & TimeZone
         Locale.setDefault(Locale.UK);
         TimeZone.setDefault(GMT);

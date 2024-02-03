@@ -28,7 +28,7 @@ import org.xml.sax.SAXException;
 /**
  * Performs Validation Test for exception handling.
  */
-public class ExceptionTest extends AbstractCommonTest {
+class ExceptionTest extends AbstractCommonTest {
 
     /**
      * The key used to retrieve the set of validation rules from the xml file.
@@ -52,7 +52,7 @@ public class ExceptionTest extends AbstractCommonTest {
      * Tests handling of checked exceptions - should become ValidatorExceptions.
      */
     @Test
-    public void testValidatorException() {
+    void testValidatorException() {
         // Create bean to run test on.
         final ValueBean info = new ValueBean();
         info.setValue("VALIDATOR");

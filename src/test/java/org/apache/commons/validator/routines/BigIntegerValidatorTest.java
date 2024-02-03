@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test Case for BigIntegerValidator.
  */
-public class BigIntegerValidatorTest extends AbstractNumberValidatorTest {
+class BigIntegerValidatorTest extends AbstractNumberValidatorTest {
 
     @Override
     @BeforeEach
@@ -77,7 +77,7 @@ public class BigIntegerValidatorTest extends AbstractNumberValidatorTest {
      * Test BigInteger Range/Min/Max
      */
     @Test
-    public void testBigIntegerRangeMinMax() {
+    void testBigIntegerRangeMinMax() {
         final BigIntegerValidator validator = (BigIntegerValidator) strictValidator;
         final BigInteger number9 = validator.validate("9", "#");
         final BigInteger number10 = validator.validate("10", "#");
@@ -108,7 +108,7 @@ public class BigIntegerValidatorTest extends AbstractNumberValidatorTest {
      * Test BigIntegerValidator validate Methods
      */
     @Test
-    public void testBigIntegerValidatorMethods() {
+    void testBigIntegerValidatorMethods() {
         final Locale locale = Locale.GERMAN;
         final String pattern = "0,00,00";
         final String patternVal = "1,23,45";

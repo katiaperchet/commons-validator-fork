@@ -30,7 +30,7 @@ import org.xml.sax.SAXException;
 /**
  * Tests that validator rules split between 2 different XML files get merged properly.
  */
-public class MultipleConfigFilesTest {
+class MultipleConfigFilesTest {
 
     /**
      * The key used to retrieve the set of validation rules from the xml file.
@@ -66,7 +66,7 @@ public class MultipleConfigFilesTest {
      * With nothing provided, we should fail both because both are required.
      */
     @Test
-    public void testBothBlank() throws ValidatorException {
+    void testBothBlank() throws ValidatorException {
         // Create bean to run test on.
         final NameBean name = new NameBean();
 
@@ -103,7 +103,7 @@ public class MultipleConfigFilesTest {
      * Check the forms and constants from different config files have been merged into the same FormSet.
      */
     @Test
-    public void testMergedConfig() {
+    void testMergedConfig() {
 
         // *********** Default Locale *******************
 
@@ -150,7 +150,7 @@ public class MultipleConfigFilesTest {
      * If the first name fails required, and the second test fails int, we should get two errors.
      */
     @Test
-    public void testRequiredFirstNameBlankLastNameShort() throws ValidatorException {
+    void testRequiredFirstNameBlankLastNameShort() throws ValidatorException {
         // Create bean to run test on.
         final NameBean name = new NameBean();
         name.setFirstName("");
@@ -184,7 +184,7 @@ public class MultipleConfigFilesTest {
      * If first name is ok and last name is ok and is an int, no errors.
      */
     @Test
-    public void testRequiredLastNameLong() throws ValidatorException {
+    void testRequiredLastNameLong() throws ValidatorException {
         // Create bean to run test on.
         final NameBean name = new NameBean();
         name.setFirstName("Joe");
@@ -218,7 +218,7 @@ public class MultipleConfigFilesTest {
      * If the first name is there, and the last name fails int, we should get one error.
      */
     @Test
-    public void testRequiredLastNameShort() throws ValidatorException {
+    void testRequiredLastNameShort() throws ValidatorException {
         // Create bean to run test on.
         final NameBean name = new NameBean();
         name.setFirstName("Test");

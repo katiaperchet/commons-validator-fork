@@ -35,7 +35,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test Case for CalendarValidator.
  */
-public class CalendarValidatorTest extends AbstractCalendarValidatorTest {
+class CalendarValidatorTest extends AbstractCalendarValidatorTest {
 
     private static final int DATE_2005_11_23 = 20051123;
     private static final int TIME_12_03_45 = 120345;
@@ -52,7 +52,7 @@ public class CalendarValidatorTest extends AbstractCalendarValidatorTest {
      * Test adjustToTimeZone() method
      */
     @Test
-    public void testAdjustToTimeZone() {
+    void testAdjustToTimeZone() {
 
         final Calendar calEST = createCalendar(EST, DATE_2005_11_23, TIME_12_03_45);
         final Date dateEST = calEST.getTime();
@@ -100,7 +100,7 @@ public class CalendarValidatorTest extends AbstractCalendarValidatorTest {
      * Test CalendarValidator validate Methods
      */
     @Test
-    public void testCalendarValidatorMethods() {
+    void testCalendarValidatorMethods() {
         Locale.setDefault(Locale.US);
         final Locale locale = Locale.GERMAN;
         final String pattern = "yyyy-MM-dd";
@@ -146,7 +146,7 @@ public class CalendarValidatorTest extends AbstractCalendarValidatorTest {
      * Test compare date methods
      */
     @Test
-    public void testCompare() {
+    void testCompare() {
         final int sameTime = 124522;
         final int testDate = 20050823;
         final Calendar diffHour = createCalendar(GMT, testDate, 115922); // same date, different time
@@ -229,7 +229,7 @@ public class CalendarValidatorTest extends AbstractCalendarValidatorTest {
      * Test Date/Time style Validator (there isn't an implementation for this)
      */
     @Test
-    public void testDateTimeStyle() {
+    void testDateTimeStyle() {
         // Set the default Locale
         final Locale origDefault = Locale.getDefault();
         Locale.setDefault(Locale.UK);

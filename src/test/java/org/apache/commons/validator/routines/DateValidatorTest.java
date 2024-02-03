@@ -33,7 +33,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test Case for DateValidator.
  */
-public class DateValidatorTest extends AbstractCalendarValidatorTest {
+class DateValidatorTest extends AbstractCalendarValidatorTest {
 
     private DateValidator dateValidator;
 
@@ -50,7 +50,7 @@ public class DateValidatorTest extends AbstractCalendarValidatorTest {
      * Test compare date methods
      */
     @Test
-    public void testCompare() {
+    void testCompare() {
         final int sameTime = 124522;
         final int testDate = 20050823;
         final Date diffHour = createDate(GMT, testDate, 115922); // same date, different time
@@ -124,7 +124,7 @@ public class DateValidatorTest extends AbstractCalendarValidatorTest {
      * Test DateValidator validate Methods
      */
     @Test
-    public void testDateValidatorMethods() {
+    void testDateValidatorMethods() {
         Locale.setDefault(Locale.US);
         final Locale locale = Locale.GERMAN;
         final String pattern = "yyyy-MM-dd";
@@ -171,7 +171,7 @@ public class DateValidatorTest extends AbstractCalendarValidatorTest {
      * Check that locale providers are set up correctly If not, the parse will fail
      */
     @Test
-    public void testLocaleProviders() throws Exception {
+    void testLocaleProviders() throws Exception {
         final String localeProviders = System.getProperty("java.locale.providers");
         if (localeProviders != null) { // may be null before Java 9
             assertTrue(localeProviders.startsWith("COMPAT"), "java.locale.providers must start with COMPAT");
