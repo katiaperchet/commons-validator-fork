@@ -55,7 +55,7 @@ public class EmailValidator {
     private static final Pattern TLD_PATTERN = Pattern.compile("^([a-zA-Z]+)$");
 
     private static final Pattern USER_PATTERN = Pattern.compile("^\\s*" + WORD + "(\\." + WORD + ")*$");
-    private static final Pattern DOMAIN_PATTERN = Pattern.compile("^" + ATOM + "(\\." + ATOM + ")*\\s*$");
+    private static final Pattern DOMAIN_PATTERN = Pattern.compile("^(?>" + ATOM + "(?:\\." + ATOM + ")*+)\\s*$");
     private static final Pattern ATOM_PATTERN = Pattern.compile("(" + ATOM + ")");
 
     /**
