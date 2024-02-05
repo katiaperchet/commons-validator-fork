@@ -85,10 +85,10 @@ class CalendarValidatorTest extends AbstractCalendarValidatorTest {
         assertTrue(UTC.hasSameRules(GMT), "SAME: UTC = GMT");
         assertEquals(calUTC.getTime(), calGMT.getTime(), "SAME: Check time (A)");
         assertNotEquals(GMT, calUTC.getTimeZone(), "SAME: Check GMT(A)");
-        assertTrue(UTC.equals(calUTC.getTimeZone()), "SAME: Check UTC(A)");
+        assertEquals(UTC, calUTC.getTimeZone(), "SAME: Check UTC(A)");
         CalendarValidator.adjustToTimeZone(calUTC, GMT);
         assertEquals(calUTC.getTime(), calGMT.getTime(), "SAME: Check time (B)");
-        assertTrue(GMT.equals(calUTC.getTimeZone()), "SAME: Check GMT(B)");
+        assertEquals(GMT, calUTC.getTimeZone(), "SAME: Check GMT(B)");
         assertNotEquals(UTC, calUTC.getTimeZone(), "SAME: Check UTC(B)");
     }
 
