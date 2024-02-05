@@ -29,7 +29,7 @@ import org.xml.sax.Attributes;
 public class FormSetFactory extends AbstractObjectCreationFactory {
 
     /** Logging */
-    private transient Log log = LogFactory.getLog(FormSetFactory.class);
+    private Log log = LogFactory.getLog(FormSetFactory.class);
 
     /**
      * <p>Create or retrieve a <code>FormSet</code> based on the language, country
