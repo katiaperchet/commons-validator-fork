@@ -168,7 +168,7 @@ public class ValidatorAction implements Serializable {
             Object result = returnResult(paramValues);
 
             final boolean valid = this.isValid(result);
-            if (!valid || valid && !onlyReturnErrors(params)) {
+            if (!valid || !onlyReturnErrors(params)) {
                 results.add(field, this.name, valid, result);
             }
 
@@ -601,13 +601,7 @@ public class ValidatorAction implements Serializable {
         return function.isEmpty() ? null : function;
     }
 
-    /**
-     * Sets the class of the validator action.
-     *
-     * @param className Class name of the validator Action.
-     * @deprecated Use {@link #setClassName(String)}.
-     */
-    @Deprecated
+
     public void setClassname(final String className) {
         this.className = className;
     }
