@@ -88,28 +88,13 @@ public class ValidatorResources implements Serializable {
 
     private transient Log log = LogFactory.getLog(ValidatorResources.class);
 
-    /**
-     * <code>Map</code> of <code>FormSet</code>s stored under
-     * a <code>Locale</code> key (expressed as a String).
-     * @deprecated Subclasses should use getFormSets() instead.
-     */
-    @Deprecated
+
     protected FastHashMap hFormSets = new FastHashMap(); // <String, FormSet>
 
-    /**
-     * <code>Map</code> of global constant values with
-     * the name of the constant as the key.
-     * @deprecated Subclasses should use getConstants() instead.
-     */
-    @Deprecated
+
     protected FastHashMap hConstants = new FastHashMap(); // <String, String>
 
-    /**
-     * <code>Map</code> of <code>ValidatorAction</code>s with
-     * the name of the <code>ValidatorAction</code> as the key.
-     * @deprecated Subclasses should use getActions() instead.
-     */
-    @Deprecated
+   
     protected FastHashMap hActions = new FastHashMap(); // <String, ValidatorAction>
 
     /**
