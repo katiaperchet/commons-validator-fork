@@ -41,19 +41,7 @@ class FlagsTest {
         assertEquals(0, f.getFlags());
     }
 
-    /**
-     * Test for Object clone()
-     */
-    @Test
-    void testClone() {
-    }
 
-    /**
-     * Test for boolean equals(Object)
-     */
-    @Test
-    void testEqualsObject() {
-    }
 
     @Test
     void testGetFlags() {
@@ -113,9 +101,7 @@ class FlagsTest {
         assertEquals("0000000000000000000000000000000000000000000000000000000000000100", s);
     }
 
-    @Test
-    void testTurnOff() {
-    }
+
 
     @Test
     void testTurnOffAll() {
@@ -131,8 +117,6 @@ class FlagsTest {
         assertEquals(~0, f.getFlags());
     }
 
-    @Test
-    void testTurnOnOff() {
-    }
+
 
 }
