@@ -391,11 +391,7 @@ public class UrlValidator implements Serializable {
             return false;
         }
 
-        if (!isValidFragment(uri.getRawFragment())) {
-            return false;
-        }
-
-        return true;
+        return isValidFragment(uri.getRawFragment());
     }
 
     /**
@@ -458,11 +454,7 @@ public class UrlValidator implements Serializable {
         }
 
         final String extra = authorityMatcher.group(PARSE_AUTHORITY_EXTRA);
-        if (extra != null && !extra.trim().isEmpty()) {
-            return false;
-        }
-
-        return true;
+        return extra == null || extra.trim().isEmpty();
     }
 
     /**
@@ -505,11 +497,7 @@ public class UrlValidator implements Serializable {
         }
 
         final int slash2Count = countToken("//", path);
-        if (isOff(ALLOW_2_SLASHES) && slash2Count > 0) {
-            return false;
-        }
-
-        return true;
+        return !isOff(ALLOW_2_SLASHES) || slash2Count <= 0;
     }
 
     /**
@@ -543,11 +531,7 @@ public class UrlValidator implements Serializable {
             return false;
         }
 
-        if (isOff(ALLOW_ALL_SCHEMES) && !allowedSchemes.contains(scheme.toLowerCase(Locale.ENGLISH))) {
-            return false;
-        }
-
-        return true;
+        return !isOff(ALLOW_ALL_SCHEMES) || allowedSchemes.contains(scheme.toLowerCase(Locale.ENGLISH));
     }
 
 }
