@@ -16,12 +16,6 @@
  */
 package org.apache.commons.validator.routines;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -29,6 +23,8 @@ import java.util.TimeZone;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test Case for DateValidator.
@@ -159,7 +155,7 @@ class DateValidatorTest extends AbstractCalendarValidatorTest {
         // Test Time Zone
         final TimeZone zone = TimeZone.getDefault().getRawOffset() == EET.getRawOffset() ? EST : EET;
         final Date expectedZone = createCalendar(zone, 20051231, 0).getTime();
-        assertFalse(expected.getTime() == expectedZone.getTime(), "default/zone same " + zone);
+        assertNotEquals(expected.getTime(), expectedZone.getTime(), "default/zone same " + zone);
 
         assertEquals(expectedZone, DateValidator.getInstance().validate(defaultVal, zone), "validate(C) default");
         assertEquals(expectedZone, DateValidator.getInstance().validate(localeVal, locale, zone), "validate(C) locale ");
