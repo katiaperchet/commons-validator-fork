@@ -49,7 +49,7 @@ public class Form implements Serializable {
      * in although individual <code>Field</code>s can be retrieved using <code>Map</code>
      * of <code>Field</code>s.
      */
-    protected List<Field> lFields = new ArrayList<>();
+    protected transient List<Field> lFields = new ArrayList<>();
 
     /**
      * Map of <code>Field</code>s keyed on their property value.
@@ -219,7 +219,7 @@ public class Form implements Serializable {
             if (parent != null) {
                 if (!parent.isProcessed()) {
                     //we want to go all the way up the tree
-                    parent.process(constants, globalConstants, forms);
+                    parent.process(globalConstants,constants, forms);
                 }
                 for (final Field f : parent.getFields()) {
                     //we want to be able to override any fields we like
