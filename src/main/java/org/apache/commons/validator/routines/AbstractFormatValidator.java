@@ -44,7 +44,7 @@ public abstract class AbstractFormatValidator implements Serializable {
      * @param strict {@code true} if strict
      *        <code>Format</code> parsing should be used.
      */
-    protected AbstractFormatValidator(final boolean strict) {
+    public AbstractFormatValidator(final boolean strict) {
         this.strict = strict;
     }
 
