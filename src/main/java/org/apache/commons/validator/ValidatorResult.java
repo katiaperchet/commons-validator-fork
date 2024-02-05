@@ -39,7 +39,7 @@ public class ValidatorResult implements Serializable {
         private boolean valid;
 
         /** Result returned by a validation method. */
-        private transient Object result;
+        private Object result;
 
        /**
         * Constructs a Result status.
@@ -108,7 +108,7 @@ public class ValidatorResult implements Serializable {
      * Map of results.  The key is the name of the <code>ValidatorAction</code>
      * and the value is whether or not this field passed or not.
      */
-    protected transient Map<String, ResultStatus> hAction = new HashMap<>();
+    protected Map<String, ResultStatus> hAction = new HashMap<>();
 
     /**
      * <code>Field</code> being validated.

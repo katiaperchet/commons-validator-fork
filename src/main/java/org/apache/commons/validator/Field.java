@@ -143,7 +143,7 @@ public class Field implements Cloneable, Serializable {
      * @since 1.1
      */
     @SuppressWarnings("unchecked") // cannot instantiate generic array, so have to assume this is OK
-    protected transient Map<String, Arg>[] args = new Map[0];
+    protected Map<String, Arg>[] args = new Map[0];
 
     /**
      * Add an <code>Arg</code> to the replacement argument list.

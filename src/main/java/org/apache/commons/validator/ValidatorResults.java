@@ -34,7 +34,7 @@ public class ValidatorResults implements Serializable {
     /**
      * Map of validation results.
      */
-    protected transient Map<String, ValidatorResult> hResults = new HashMap<>();
+    protected Map<String, ValidatorResult> hResults = new HashMap<>();
 
     /**
      * Add a the result of a validator action.
