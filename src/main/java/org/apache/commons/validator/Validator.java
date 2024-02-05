@@ -106,7 +106,7 @@ public class Validator implements Serializable {
      * Maps validation method parameter class names to the objects to be passed
      * into the method.
      */
-    protected Map<String, Object> parameters = new HashMap<>(); // <String, Object>
+    protected transient Map<String, Object> parameters = new HashMap<>(); // <String, Object>
 
     /**
      * The current page number to validate.

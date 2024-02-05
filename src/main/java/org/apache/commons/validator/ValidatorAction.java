@@ -121,7 +121,7 @@ public class ValidatorAction implements Serializable {
     /**
      * If the Java method matching the correct signature isn't static, the instance is stored in the action. This assumes the method is thread safe.
      */
-    private Object instance;
+    private transient Object instance;
 
     /**
      * An internal List representation of the other <code>ValidatorAction</code>s this one depends on (if any). This List gets updated whenever setDepends()
