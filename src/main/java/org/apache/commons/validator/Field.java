@@ -651,8 +651,8 @@ public class Field implements Cloneable, Serializable {
         // Process Var Constant Replacement
         for (final String key1 : getVarMap().keySet()) {
             final String key2 = TOKEN_START + TOKEN_VAR + key1 + TOKEN_END;
-            final Var var = this.getVar(key1);
-            final String replaceValue = var.getValue();
+            final Var gettedVar = this.getVar(key1);
+            final String replaceValue = gettedVar.getValue();
 
             this.processMessageComponents(key2, replaceValue);
         }
@@ -697,8 +697,8 @@ public class Field implements Cloneable, Serializable {
      */
     private void processVars(final String key, final String replaceValue) {
         for (final String varKey : getVarMap().keySet()) {
-            final Var var = this.getVar(varKey);
-            var.setValue(ValidatorUtils.replace(var.getValue(), key, replaceValue));
+            final Var gettedVar  = this.getVar(varKey);
+            gettedVar.setValue(ValidatorUtils.replace(gettedVar.getValue(), key, replaceValue));
         }
 
     }
