@@ -125,15 +125,14 @@ public class Field implements Cloneable, Serializable {
     private final List<String> dependencyList = Collections.synchronizedList(new ArrayList<>());
 
     /**
-     * @deprecated Subclasses should use getVarMap() instead.
+     * Subclasses should use getVarMap() instead.
      */
-    @Deprecated
     protected FastHashMap hVars = new FastHashMap(); // <String, Var>
 
     /**
-     * @deprecated Subclasses should use getMsgMap() instead.
+     *  Subclasses should use getMsgMap() instead.
      */
-    @Deprecated
+
     protected FastHashMap hMsgs = new FastHashMap(); // <String, Msg>
 
     /**
