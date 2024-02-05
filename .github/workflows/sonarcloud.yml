@@ -1,6 +1,9 @@
 name: Run SonarQube with Maven
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -13,8 +16,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven cloud
-      run:  mvn -B verify sonar:sonar -Dsonar.projectKey=katiaperchet_commons-validator-fork -Dsonar.organization=katiaperchet-1 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONARCLOUD_TOKEN
+    - name: Build with Maven and Run SonarCloud
+      if: github.event_name == 'push' # Run only on push events, not pull requests
+      run: mvn -B verify sonar:sonar -Dsonar.projectKey=katiaperchet_commons-validator-fork -Dsonar.organization=katiaperchet-1 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONARCLOUD_TOKEN
       env:
         GIT_HUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONARCLOUD_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
