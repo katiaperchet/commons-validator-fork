@@ -94,7 +94,7 @@ public class ValidatorResources implements Serializable {
 
     protected FastHashMap hConstants = new FastHashMap(); // <String, String>
 
-   
+
     protected FastHashMap hActions = new FastHashMap(); // <String, ValidatorAction>
 
     /**
