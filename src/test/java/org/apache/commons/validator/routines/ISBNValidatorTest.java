@@ -241,19 +241,19 @@ class ISBNValidatorTest {
     @Test
     void testValidateISBN10() {
         final ISBNValidator validator = ISBNValidator.getInstance(false);
-        assertEquals(validator.validateISBN10("1930110995"), "1930110995", "validateISBN10-1");
-        assertEquals(validator.validateISBN10("1-930110-99-5"), "1930110995", "validateISBN10-2");
-        assertEquals(validator.validateISBN10("1 930110 99 5"), "1930110995", "validateISBN10-3");
-        assertEquals(validator.validateISBN10("020163385X"), "020163385X", "validateISBN10-4");
-        assertEquals(validator.validateISBN10("0-201-63385-X"), "020163385X", "validateISBN10-5");
-        assertEquals(validator.validateISBN10("0 201 63385 X"), "020163385X", "validateISBN10-6");
+        assertEquals( "1930110995", validator.validateISBN10("1930110995"),"validateISBN10-1");
+        assertEquals( "1930110995",validator.validateISBN10("1-930110-99-5"), "validateISBN10-2");
+        assertEquals( "1930110995", validator.validateISBN10("1 930110 99 5"),"validateISBN10-3");
+        assertEquals( "020163385X", validator.validateISBN10("020163385X"), "validateISBN10-4");
+        assertEquals("020163385X", validator.validateISBN10("0-201-63385-X"),  "validateISBN10-5");
+        assertEquals( "020163385X", validator.validateISBN10("0 201 63385 X"), "validateISBN10-6");
 
-        assertEquals(validator.validate("1930110995"), "1930110995", "validate-1");
-        assertEquals(validator.validate("1-930110-99-5"), "1930110995", "validate-2");
-        assertEquals(validator.validate("1 930110 99 5"), "1930110995", "validate-3");
-        assertEquals(validator.validate("020163385X"), "020163385X", "validate-4");
-        assertEquals(validator.validate("0-201-63385-X"), "020163385X", "validate-5");
-        assertEquals(validator.validate("0 201 63385 X"), "020163385X", "validate-6");
+        assertEquals( "1930110995", validator.validate("1930110995"), "validate-1");
+        assertEquals("1930110995", validator.validate("1-930110-99-5"),  "validate-2");
+        assertEquals( "1930110995", validator.validate("1 930110 99 5"), "validate-3");
+        assertEquals( "020163385X", validator.validate("020163385X"),"validate-4");
+        assertEquals( "020163385X", validator.validate("0-201-63385-X"), "validate-5");
+        assertEquals("020163385X", validator.validate("0 201 63385 X"), "validate-6");
     }
 
     /**
@@ -262,12 +262,12 @@ class ISBNValidatorTest {
     @Test
     void testValidateISBN10Convert() {
         final ISBNValidator validator = ISBNValidator.getInstance();
-        assertEquals(validator.validate("1930110995"), "9781930110991", "validate-1");
-        assertEquals(validator.validate("1-930110-99-5"), "9781930110991", "validate-2");
-        assertEquals(validator.validate("1 930110 99 5"), "9781930110991", "validate-3");
-        assertEquals(validator.validate("020163385X"), "9780201633856", "validate-4");
-        assertEquals(validator.validate("0-201-63385-X"), "9780201633856", "validate-5");
-        assertEquals(validator.validate("0 201 63385 X"), "9780201633856", "validate-6");
+        assertEquals("9781930110991", validator.validate("1930110995"), "validate-1");
+        assertEquals("9781930110991", validator.validate("1-930110-99-5"), "validate-2");
+        assertEquals( "9781930110991", validator.validate("1 930110 99 5"),"validate-3");
+        assertEquals("9780201633856", validator.validate("020163385X"),  "validate-4");
+        assertEquals( "9780201633856", validator.validate("0-201-63385-X"), "validate-5");
+        assertEquals("9780201633856", validator.validate("0 201 63385 X"), "validate-6");
     }
 
     /**
@@ -276,19 +276,19 @@ class ISBNValidatorTest {
     @Test
     void testValidateISBN13() {
         final ISBNValidator validator = ISBNValidator.getInstance();
-        assertEquals(validator.validateISBN13("9781930110991"), "9781930110991", "validateISBN13-1");
-        assertEquals(validator.validateISBN13("978-1-930110-99-1"), "9781930110991", "validateISBN13-2");
-        assertEquals(validator.validateISBN13("978 1 930110 99 1"), "9781930110991", "validateISBN13-3");
-        assertEquals(validator.validateISBN13("9780201633856"), "9780201633856", "validateISBN13-4");
-        assertEquals(validator.validateISBN13("978-0-201-63385-6"), "9780201633856", "validateISBN13-5");
-        assertEquals(validator.validateISBN13("978 0 201 63385 6"), "9780201633856", "validateISBN13-6");
+        assertEquals("9781930110991", validator.validateISBN13("9781930110991"),  "validateISBN13-1");
+        assertEquals( "9781930110991", validator.validateISBN13("978-1-930110-99-1"), "validateISBN13-2");
+        assertEquals( "9781930110991",validator.validateISBN13("978 1 930110 99 1"), "validateISBN13-3");
+        assertEquals( "9780201633856", validator.validateISBN13("9780201633856"),"validateISBN13-4");
+        assertEquals("9780201633856", validator.validateISBN13("978-0-201-63385-6"), "validateISBN13-5");
+        assertEquals("9780201633856",validator.validateISBN13("978 0 201 63385 6"),  "validateISBN13-6");
 
-        assertEquals(validator.validate("9781930110991"), "9781930110991", "validate-1");
-        assertEquals(validator.validate("978-1-930110-99-1"), "9781930110991", "validate-2");
-        assertEquals(validator.validate("978 1 930110 99 1"), "9781930110991", "validate-3");
-        assertEquals(validator.validate("9780201633856"), "9780201633856", "validate-4");
-        assertEquals(validator.validate("978-0-201-63385-6"), "9780201633856", "validate-5");
-        assertEquals(validator.validate("978 0 201 63385 6"), "9780201633856", "validate-6");
+        assertEquals("9781930110991", validator.validate("9781930110991"), "validate-1");
+        assertEquals( "9781930110991", validator.validate("978-1-930110-99-1"), "validate-2");
+        assertEquals( "9781930110991", validator.validate("978 1 930110 99 1"),"validate-3");
+        assertEquals("9780201633856", validator.validate("9780201633856"),  "validate-4");
+        assertEquals("9780201633856", validator.validate("978-0-201-63385-6"), "validate-5");
+        assertEquals( "9780201633856", validator.validate("978 0 201 63385 6"),"validate-6");
     }
 
     /**

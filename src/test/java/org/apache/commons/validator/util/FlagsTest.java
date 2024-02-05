@@ -58,13 +58,13 @@ class FlagsTest {
     @Test
     void testGetFlags() {
         final Flags f = new Flags(45);
-        assertEquals(f.getFlags(), 45);
+        assertEquals( 45,f.getFlags());
     }
 
     @Test
     void testHashCode() {
         final Flags f = new Flags(45);
-        assertEquals(f.hashCode(), 45);
+        assertEquals( 45, f.hashCode());
     }
 
     @Test

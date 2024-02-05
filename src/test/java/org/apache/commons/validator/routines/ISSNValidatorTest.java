@@ -125,9 +125,9 @@ class ISSNValidatorTest {
             assertTrue(ean13cd.isValid(ean13), ean13);
         }
         // internet samples
-        assertEquals(VALIDATOR.convertToEAN13("1144-875X", "00"), "9771144875007");
-        assertEquals(VALIDATOR.convertToEAN13("0264-3596", "00"), "9770264359008");
-        assertEquals(VALIDATOR.convertToEAN13("1234-5679", "00"), "9771234567003");
+        assertEquals( "9771144875007", VALIDATOR.convertToEAN13("1144-875X", "00"));
+        assertEquals( "9770264359008", VALIDATOR.convertToEAN13("0264-3596", "00"));
+        assertEquals( "9771234567003", VALIDATOR.convertToEAN13("1234-5679", "00"));
     }
 
     @Test

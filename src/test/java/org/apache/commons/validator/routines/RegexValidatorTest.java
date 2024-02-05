@@ -105,7 +105,7 @@ class RegexValidatorTest {
             new RegexValidator((String) null);
             fail("Single Null - expected IllegalArgumentException");
         } catch (final IllegalArgumentException e) {
-            assertEquals(e.getMessage(), "Regular expression[0] is missing", "Single Null");
+            assertEquals( "Regular expression[0] is missing", e.getMessage(),"Single Null");
         }
 
         // Single Regular Expression - Zero Length
@@ -113,7 +113,7 @@ class RegexValidatorTest {
             new RegexValidator("");
             fail("Single Zero Length - expected IllegalArgumentException");
         } catch (final IllegalArgumentException e) {
-            assertEquals(e.getMessage(), "Regular expression[0] is missing", "Single Zero Length");
+            assertEquals( "Regular expression[0] is missing", e.getMessage(), "Single Zero Length");
         }
 
         // Multiple Regular Expression - Null array
@@ -121,7 +121,7 @@ class RegexValidatorTest {
             new RegexValidator((String[]) null);
             fail("Null Array - expected IllegalArgumentException");
         } catch (final IllegalArgumentException e) {
-            assertEquals(e.getMessage(), "Regular expressions are missing", "Null Array");
+            assertEquals( "Regular expressions are missing", e.getMessage(),"Null Array");
         }
 
         // Multiple Regular Expression - Zero Length array
@@ -129,7 +129,7 @@ class RegexValidatorTest {
             new RegexValidator();
             fail("Zero Length Array - expected IllegalArgumentException");
         } catch (final IllegalArgumentException e) {
-            assertEquals(e.getMessage(), "Regular expressions are missing", "Zero Length Array");
+            assertEquals( "Regular expressions are missing", e.getMessage(),"Zero Length Array");
         }
 
         // Multiple Regular Expression - Array has Null
@@ -138,7 +138,7 @@ class RegexValidatorTest {
             new RegexValidator(expressions);
             fail("Array has Null - expected IllegalArgumentException");
         } catch (final IllegalArgumentException e) {
-            assertEquals(e.getMessage(), "Regular expression[1] is missing", "Array has Null");
+            assertEquals( "Regular expression[1] is missing",e.getMessage(), "Array has Null");
         }
 
         // Multiple Regular Expression - Array has Zero Length
@@ -147,7 +147,7 @@ class RegexValidatorTest {
             new RegexValidator(expressions);
             fail("Array has Zero Length - expected IllegalArgumentException");
         } catch (final IllegalArgumentException e) {
-            assertEquals(e.getMessage(), "Regular expression[0] is missing", "Array has Zero Length");
+            assertEquals( "Regular expression[0] is missing", e.getMessage(),"Array has Zero Length");
         }
     }
 
@@ -262,9 +262,9 @@ class RegexValidatorTest {
         assertEquals(false, insensitive.isValid("ABd-de-1"), "Insensitive isValid() invalid");
 
         // validate()
-        assertEquals(sensitive.validate("ac-DE-1"), "acDE1", "Sensitive validate() valid");
+        assertEquals( "acDE1", sensitive.validate("ac-DE-1"),"Sensitive validate() valid");
         assertEquals(null, sensitive.validate("AB-de-1"), "Sensitive validate() invalid");
-        assertEquals(insensitive.validate("AB-de-1"), "ABde1", "Insensitive validate() valid");
+        assertEquals( "ABde1", insensitive.validate("AB-de-1"),"Insensitive validate() valid");
         assertEquals(null, insensitive.validate("ABd-de-1"), "Insensitive validate() invalid");
 
         // match()
@@ -272,7 +272,7 @@ class RegexValidatorTest {
         checkArray("Sensitive match() invalid", null, sensitive.match("AB-de-1"));
         checkArray("Insensitive match() valid", new String[] { "AB", "de", "1" }, insensitive.match("AB-de-1"));
         checkArray("Insensitive match() invalid", null, insensitive.match("ABd-de-1"));
-        assertEquals(new RegexValidator("^([A-Z]*)$").validate("ABC"), "ABC", "validate one");
+        assertEquals( "ABC", new RegexValidator("^([A-Z]*)$").validate("ABC"), "validate one");
         checkArray("match one", new String[] { "ABC" }, new RegexValidator("^([A-Z]*)$").match("ABC"));
     }
 

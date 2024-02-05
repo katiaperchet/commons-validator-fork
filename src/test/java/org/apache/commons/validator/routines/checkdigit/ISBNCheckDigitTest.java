@@ -55,7 +55,7 @@ class ISBNCheckDigitTest extends AbstractCheckDigitTest {
             routine.calculate("12345678");
             fail("calculate() Lth 8 - expected exception");
         } catch (final Exception e) {
-            assertEquals(e.getMessage(), "Invalid ISBN Length = 8", "calculate() Lth 8");
+            assertEquals("Invalid ISBN Length = 8",e.getMessage(),  "calculate() Lth 8");
         }
 
         try {
