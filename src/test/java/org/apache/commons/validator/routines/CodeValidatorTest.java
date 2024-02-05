@@ -87,21 +87,21 @@ class CodeValidatorTest {
 
         // Constructor 4
         validator = new CodeValidator("^[0-9]*$", EAN13CheckDigit.EAN13_CHECK_DIGIT);
-        assertEquals(validator.getRegexValidator().toString(), "RegexValidator{^[0-9]*$}", "Constructor 4 - regex");
+        assertEquals("RegexValidator{^[0-9]*$}", validator.getRegexValidator().toString(), "Constructor 4 - regex");
         assertEquals(-1, validator.getMinLength(), "Constructor 4 - min length");
         assertEquals(-1, validator.getMaxLength(), "Constructor 4 - max length");
         assertEquals(EAN13CheckDigit.EAN13_CHECK_DIGIT, validator.getCheckDigit(), "Constructor 4 - check digit");
 
         // Constructor 5
         validator = new CodeValidator("^[0-9]*$", 13, EAN13CheckDigit.EAN13_CHECK_DIGIT);
-        assertEquals(validator.getRegexValidator().toString(), "RegexValidator{^[0-9]*$}", "Constructor 5 - regex");
+        assertEquals("RegexValidator{^[0-9]*$}", validator.getRegexValidator().toString(), "Constructor 5 - regex");
         assertEquals(13, validator.getMinLength(), "Constructor 5 - min length");
         assertEquals(13, validator.getMaxLength(), "Constructor 5 - max length");
         assertEquals(EAN13CheckDigit.EAN13_CHECK_DIGIT, validator.getCheckDigit(), "Constructor 5 - check digit");
 
         // Constructor 6
         validator = new CodeValidator("^[0-9]*$", 10, 20, EAN13CheckDigit.EAN13_CHECK_DIGIT);
-        assertEquals(validator.getRegexValidator().toString(), "RegexValidator{^[0-9]*$}", "Constructor 6 - regex");
+        assertEquals( "RegexValidator{^[0-9]*$}", validator.getRegexValidator().toString(),"Constructor 6 - regex");
         assertEquals(10, validator.getMinLength(), "Constructor 6 - min length");
         assertEquals(20, validator.getMaxLength(), "Constructor 6 - max length");
         assertEquals(EAN13CheckDigit.EAN13_CHECK_DIGIT, validator.getCheckDigit(), "Constructor 6 - check digit");
@@ -177,7 +177,7 @@ class CodeValidatorTest {
         assertEquals(null, validator.validate(null), "Null");
         assertEquals(null, validator.validate(""), "Zero Length");
         assertEquals(null, validator.validate("   "), "Spaces");
-        assertEquals(validator.validate(" A  "), "A", "Trimmed");
+        assertEquals( "A", validator.validate(" A  "),"Trimmed");
     }
 
     /**
@@ -214,17 +214,17 @@ class CodeValidatorTest {
         // Reformatted
         regex = "^([0-9]{3})(?:[-\\s])([0-9]{3})$";
         validator = new CodeValidator(new RegexValidator(regex), 6, (CheckDigit) null);
-        assertEquals(validator.validate("123-456"), "123456", "Reformat 123-456");
-        assertEquals(validator.validate("123 456"), "123456", "Reformat 123 456");
+        assertEquals( "123456", validator.validate("123-456"),"Reformat 123-456");
+        assertEquals( "123456",validator.validate("123 456"), "Reformat 123 456");
         assertEquals(null, validator.validate("123456"), "Reformat 123456");
         assertEquals(null, validator.validate("123.456"), "Reformat 123.456");
 
         regex = "^(?:([0-9]{3})(?:[-\\s])([0-9]{3}))|([0-9]{6})$";
         validator = new CodeValidator(new RegexValidator(regex), 6, (CheckDigit) null);
         assertEquals(validator.getRegexValidator().toString(), "RegexValidator{" + regex + "}", "Reformat 2 Regex");
-        assertEquals(validator.validate("123-456"), "123456", "Reformat 2 123-456");
-        assertEquals(validator.validate("123 456"), "123456", "Reformat 2 123 456");
-        assertEquals(validator.validate("123456"), "123456", "Reformat 2 123456");
+        assertEquals( "123456",validator.validate("123-456"), "Reformat 2 123-456");
+        assertEquals("123456", validator.validate("123 456"), "Reformat 2 123 456");
+        assertEquals( "123456", validator.validate("123456"),"Reformat 2 123456");
 
     }
 

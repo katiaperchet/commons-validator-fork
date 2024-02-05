@@ -217,7 +217,7 @@ class CalendarValidatorTest extends AbstractCalendarValidatorTest {
             calValidator.compare(value, value, -1);
             fail("Invalid Compare field - expected IllegalArgumentException to be thrown");
         } catch (final IllegalArgumentException e) {
-            assertEquals(e.getMessage(), "Invalid field: -1", "check message");
+            assertEquals( "Invalid field: -1",e.getMessage(), "check message");
         }
     }
 
@@ -259,15 +259,15 @@ class CalendarValidatorTest extends AbstractCalendarValidatorTest {
         assertNull(calValidator.format(null), "null");
         assertEquals("31/12/05", calValidator.format(cal20050101), "default");
         assertEquals("12/31/05", calValidator.format(cal20050101, Locale.US), "locale");
-        assertEquals(calValidator.format(cal20050101, "yyyy-MM-dd HH:mm"), "2005-12-31 01:15", "patternA");
-        assertEquals(calValidator.format(cal20050101, "yyyy-MM-dd z"), "2005-12-31 GMT", "patternB");
+        assertEquals("2005-12-31 01:15", calValidator.format(cal20050101, "yyyy-MM-dd HH:mm"), "patternA");
+        assertEquals("2005-12-31 GMT", calValidator.format(cal20050101, "yyyy-MM-dd z"), "patternB");
         assertEquals("31 Dez 2005", calValidator.format(cal20050101, "dd MMM yyyy", Locale.GERMAN), "both");
 
         // EST Time Zone
         assertEquals("30/12/05", calValidator.format(cal20050101, EST), "EST default");
         assertEquals("12/30/05", calValidator.format(cal20050101, Locale.US, EST), "EST locale");
-        assertEquals(calValidator.format(cal20050101, "yyyy-MM-dd HH:mm", EST), "2005-12-30 20:15", "EST patternA");
-        assertEquals(calValidator.format(cal20050101, "yyyy-MM-dd z", EST), "2005-12-30 EST", "EST patternB");
+        assertEquals( "2005-12-30 20:15", calValidator.format(cal20050101, "yyyy-MM-dd HH:mm", EST), "EST patternA");
+        assertEquals("2005-12-30 EST",calValidator.format(cal20050101, "yyyy-MM-dd z", EST),  "EST patternB");
         assertEquals("30 Dez 2005", calValidator.format(cal20050101, "dd MMM yyyy", Locale.GERMAN, EST), "EST both");
 
         // Restore the original default
