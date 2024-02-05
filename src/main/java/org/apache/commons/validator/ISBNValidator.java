@@ -35,6 +35,7 @@ public class ISBNValidator {
      * Default Constructor.
      */
     public ISBNValidator() {
+        //empty constructor
     }
 
     /**
