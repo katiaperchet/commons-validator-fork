@@ -39,7 +39,7 @@ public class ValidatorUtils {
 
     private static final Log LOG = LogFactory.getLog(ValidatorUtils.class);
 
-    
+
     public static FastHashMap copyFastHashMap(final FastHashMap fastHashMap) {
         final FastHashMap results = new FastHashMap();
         @SuppressWarnings("unchecked") // FastHashMap is not generic
