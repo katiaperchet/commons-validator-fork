@@ -92,6 +92,7 @@
             <excludeFilterFile>${basedir}/src/conf/spotbugs-exclude-filter.xml</excludeFilterFile>
          </configuration>
         </plugin>
+
       </plugins>
 	</pluginManagement>
     <resources>
@@ -140,6 +141,15 @@
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.rat</groupId>
+        <artifactId>apache-rat-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>.github/workflows/sonarcloud.yml</exclude>
+          </excludes>
+        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -249,12 +259,22 @@
         <configuration>
           <excludes>
             <exclude>site-content/**</exclude>
+            <exclude>.github/workflows/sonarcloud.yml</exclude>
           </excludes>
         </configuration>
       </plugin>
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.rat</groupId>
+        <artifactId>apache-rat-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>.github/workflows/sonarcloud.yml</exclude>
+          </excludes>
+        </configuration>
       </plugin>
     </plugins>
   </reporting>
