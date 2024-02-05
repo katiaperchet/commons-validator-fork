@@ -165,22 +165,7 @@ public class ValidatorAction implements Serializable {
                 this.handleIndexedField(field, pos, paramValues);
             }
 
-            Object result = null;
-            try {
-                result = validationMethod.invoke(getValidationClassInstance(), paramValues);
-
-            } catch (IllegalArgumentException | IllegalAccessException e) {
-                throw new ValidatorException(e.getMessage());
-            } catch (final InvocationTargetException e) {
-
-                if (e.getTargetException() instanceof Exception) {
-                    throw (Exception) e.getTargetException();
-
-                }
-                if (e.getTargetException() instanceof Error) {
-                    throw (Error) e.getTargetException();
-                }
-            }
+            Object result = returnResult(paramValues);
 
             final boolean valid = this.isValid(result);
             if (!valid || valid && !onlyReturnErrors(params)) {
@@ -204,6 +189,27 @@ public class ValidatorAction implements Serializable {
         }
 
         return true;
+    }
+
+    public Object returnResult(Object[] paramValues) throws Exception {
+        Object result= null;
+        try {
+            result = validationMethod.invoke(getValidationClassInstance(), paramValues);
+
+        } catch (IllegalArgumentException | IllegalAccessException e) {
+            throw new ValidatorException(e.getMessage());
+        }
+        catch (final InvocationTargetException e) {
+
+            if (e.getTargetException() instanceof Exception) {
+                throw (Exception) e.getTargetException();
+
+            }
+            if (e.getTargetException() instanceof Error) {
+                throw (Error) e.getTargetException();
+            }
+        }
+        return result;
     }
 
     /**
