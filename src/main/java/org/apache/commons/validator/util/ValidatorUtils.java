@@ -39,6 +39,10 @@ public class ValidatorUtils {
 
     private static final Log LOG = LogFactory.getLog(ValidatorUtils.class);
 
+    private ValidatorUtils(){
+
+    }
+
     /**
      * Makes a deep copy of a <code>FastHashMap</code> if the values
      * are <code>Msg</code>, <code>Arg</code>,
