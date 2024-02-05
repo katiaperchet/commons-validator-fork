@@ -67,18 +67,18 @@ class CalendarValidatorTest extends AbstractCalendarValidatorTest {
         // EST to GMT and back
         CalendarValidator.adjustToTimeZone(calEST, GMT);
         assertEquals(dateGMT, calEST.getTime(), "EST to GMT");
-        assertFalse(dateEST == calEST.getTime(), "Check EST = GMT");
+        assertNotSame(dateEST, calEST.getTime(), "Check EST = GMT");
         CalendarValidator.adjustToTimeZone(calEST, EST);
         assertEquals(dateEST, calEST.getTime(), "back to EST");
-        assertFalse(dateGMT == calEST.getTime(), "Check EST != GMT");
+        assertNotSame(dateGMT, calEST.getTime(), "Check EST != GMT");
 
         // CET to GMT and back
         CalendarValidator.adjustToTimeZone(calCET, GMT);
         assertEquals(dateGMT, calCET.getTime(), "CET to GMT");
-        assertFalse(dateCET == calCET.getTime(), "Check CET = GMT");
+        assertNotSame(dateCET, calCET.getTime(), "Check CET = GMT");
         CalendarValidator.adjustToTimeZone(calCET, EET);
         assertEquals(dateCET, calCET.getTime(), "back to CET");
-        assertFalse(dateGMT == calCET.getTime(), "Check CET != GMT");
+        assertNotSame(dateGMT, calCET.getTime(), "Check CET != GMT");
 
         // Adjust to TimeZone with Same rules
         final Calendar calUTC = createCalendar(UTC, DATE_2005_11_23, TIME_12_03_45);
