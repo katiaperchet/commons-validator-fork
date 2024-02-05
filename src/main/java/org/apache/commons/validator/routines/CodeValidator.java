@@ -80,7 +80,7 @@ public final class CodeValidator implements Serializable {
     private final int maxLength;
 
     /** The check digit validation routine. */
-    private final CheckDigit checkdigit;
+    private transient final CheckDigit checkdigit;
 
     /**
      * Constructs a code validator with a specified regular expression,
