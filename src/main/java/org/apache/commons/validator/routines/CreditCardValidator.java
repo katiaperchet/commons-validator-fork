@@ -195,7 +195,9 @@ public class CreditCardValidator implements Serializable {
      */
     public static final long VPAY = 1 << 5; // CHECKSTYLE IGNORE MagicNumber
 
-
+    /**
+     * Option specifying that Mastercard cards (pre Oct 2016 only) are allowed.
+     */
     public static final long MASTERCARD_PRE_OCT2016 = 1 << 6; // CHECKSTYLE IGNORE MagicNumber
 
     /**
@@ -257,7 +259,7 @@ public class CreditCardValidator implements Serializable {
     /** Mastercard Card Validator */
     public static final CodeValidator MASTERCARD_VALIDATOR = new CodeValidator(MASTERCARD_REGEX, LUHN_VALIDATOR);
 
-
+    /** Mastercard Card Validator (pre Oct 2016) */
     public static final CodeValidator MASTERCARD_VALIDATOR_PRE_OCT2016 = new CodeValidator("^(5[1-5]\\d{14})$", LUHN_VALIDATOR);
 
     /**

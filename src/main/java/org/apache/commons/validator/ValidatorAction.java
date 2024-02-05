@@ -192,7 +192,7 @@ public class ValidatorAction implements Serializable {
     }
 
     public Object returnResult(Object[] paramValues) throws Exception {
-        Object result= null;
+        Object result = null;
         try {
             result = validationMethod.invoke(getValidationClassInstance(), paramValues);
 

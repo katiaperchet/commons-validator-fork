@@ -697,7 +697,7 @@ public class Field implements Cloneable, Serializable {
      */
     private void processVars(final String key, final String replaceValue) {
         for (final String varKey : getVarMap().keySet()) {
-            final Var gettedVar  = this.getVar(varKey);
+            final Var gettedVar = this.getVar(varKey);
             gettedVar.setValue(ValidatorUtils.replace(gettedVar.getValue(), key, replaceValue));
         }
 

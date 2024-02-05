@@ -146,7 +146,7 @@ public class GenericTypeValidator implements Serializable {
             formatterDefault.setLenient(false);
 
             // Firstly, try with the short form
-            date= tryShortFormatDate(formatterShort, formatterDefault, value);
+            date = tryShortFormatDate(formatterShort, formatterDefault, value);
         } catch (final ParseException e) {
             // Bad date, so LOG and return null
             if (LOG.isDebugEnabled()) {
@@ -159,7 +159,7 @@ public class GenericTypeValidator implements Serializable {
     }
 
     public static Date tryShortFormatDate(DateFormat formatterShort, DateFormat formatterDefault, String value) throws ParseException {
-        Date date=null;
+        Date date = null;
         try {
             date = formatterShort.parse(value);
         } catch (final ParseException e) {
