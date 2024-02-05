@@ -98,7 +98,6 @@ public class UrlValidator implements Serializable {
 
     private static final String ALPHA_CHARS = "a-zA-Z";
 
-// NOT USED   private static final String ALPHA_NUMERIC_CHARS = ALPHA_CHARS + "\\d";
 
     private static final String SPECIAL_CHARS = ";/@&=,.?:+$";
 
@@ -288,11 +287,7 @@ public class UrlValidator implements Serializable {
             return false;
         }
 
-        if (!isValidFragment(urlMatcher.group(PARSE_URL_FRAGMENT))) {
-            return false;
-        }
-
-        return true;
+        return isValidFragment(urlMatcher.group(PARSE_URL_FRAGMENT));
     }
 
     /**
@@ -379,11 +374,7 @@ public class UrlValidator implements Serializable {
         }
 
         final String extra = authorityMatcher.group(PARSE_AUTHORITY_EXTRA);
-        if (!GenericValidator.isBlankOrNull(extra)) {
-            return false;
-        }
-
-        return true;
+        return GenericValidator.isBlankOrNull(extra);
     }
 
     /**
@@ -420,11 +411,7 @@ public class UrlValidator implements Serializable {
 
         final int slashCount = countToken("/", path);
         final int dot2Count = countToken("..", path);
-        if (dot2Count > 0 && slashCount - slash2Count - 1 <= dot2Count) {
-            return false;
-        }
-
-        return true;
+        return dot2Count <= 0 || slashCount - slash2Count - 1 > dot2Count;
     }
 
     /**
@@ -457,10 +444,6 @@ public class UrlValidator implements Serializable {
             return false;
         }
 
-        if (options.isOff(ALLOW_ALL_SCHEMES) && !allowedSchemes.contains(scheme)) {
-            return false;
-        }
-
-        return true;
+        return !options.isOff(ALLOW_ALL_SCHEMES) || allowedSchemes.contains(scheme);
     }
 }

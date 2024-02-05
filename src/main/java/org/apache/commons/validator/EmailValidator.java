@@ -49,8 +49,6 @@ public class EmailValidator {
     private static final String ATOM = VALID_CHARS;
     private static final String WORD = "(?:" + ATOM + "+|" + QUOTED_USER + ")";
 
-// NOT USED   private static final Pattern LEGAL_ASCII_PATTERN = Pattern.compile("^\\p{ASCII}+$");
-// NOT USED   private static final Pattern EMAIL_PATTERN = Pattern.compile("^(.+)@(.+)$");
     private static final Pattern IP_DOMAIN_PATTERN = Pattern.compile("^\\[(.*)\\]$");
     private static final Pattern TLD_PATTERN = Pattern.compile("^([a-zA-Z]+)$");
 
@@ -113,11 +111,7 @@ public class EmailValidator {
         if (!symbolic) {
             return false;
         }
-        if (!isValidSymbolicDomain(domain)) {
-            return false;
-        }
-
-        return true;
+        return isValidSymbolicDomain(domain);
     }
 
     /**
@@ -184,11 +178,7 @@ public class EmailValidator {
         if (tld.length() <= 1) {
             return false;
         }
-        if (! TLD_PATTERN.matcher(tld).matches()) {
-            return false;
-        }
-
-        return true;
+        return TLD_PATTERN.matcher(tld).matches();
     }
 
     /**
