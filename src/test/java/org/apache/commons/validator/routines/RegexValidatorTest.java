@@ -79,6 +79,7 @@ class RegexValidatorTest {
         final String invalidRegex = "^([abCD12]*$";
         try {
             new RegexValidator(invalidRegex);
+            fail("PatternSyntaxException should be raised.");
         } catch (final PatternSyntaxException e) {
             // expected
         }
