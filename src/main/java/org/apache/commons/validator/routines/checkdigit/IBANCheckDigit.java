@@ -58,6 +58,7 @@ public final class IBANCheckDigit implements CheckDigit, Serializable {
      * Constructs Check Digit routine for IBAN Numbers.
      */
     public IBANCheckDigit() {
+        //empty constructor
     }
 
     /**
