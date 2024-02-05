@@ -43,19 +43,6 @@ public class ValidatorUtils {
 
     }
 
-    /**
-     * Makes a deep copy of a <code>FastHashMap</code> if the values
-     * are <code>Msg</code>, <code>Arg</code>,
-     * or <code>Var</code>.  Otherwise it is a shallow copy.
-     *
-     * @param fastHashMap <code>FastHashMap</code> to copy.
-     * @return FastHashMap A copy of the <code>FastHashMap</code> that was
-     * passed in.
-     * @deprecated This method is not part of Validator's public API.  Validator
-     * will use it internally until FastHashMap references are removed.  Use
-     * copyMap() instead.
-     */
-    @Deprecated
     public static FastHashMap copyFastHashMap(final FastHashMap fastHashMap) {
         final FastHashMap results = new FastHashMap();
         @SuppressWarnings("unchecked") // FastHashMap is not generic
