@@ -32,6 +32,7 @@ import java.util.List;
 import org.apache.commons.validator.ResultPair;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openjdk.jmh.annotations.Benchmark;
 
 /**
  * Performs Validation Test for url validations.
@@ -175,6 +176,7 @@ public class UrlValidatorTest {
      *
      * @param testObjects Used to create a url.
      */
+
     public void testIsValid(final Object[] testObjects, final long options) {
         final UrlValidator urlVal = new UrlValidator(null, null, options);
         assertTrue(urlVal.isValid("http://www.google.com"));
