@@ -158,6 +158,7 @@
         <configuration>
           <excludes>
             <exclude>.github/workflows/sonarcloud.yml</exclude>
+            <exclude>src/test/java/org/apache/commons/validator/BenchmarkRunner.java</exclude>
           </excludes>
         </configuration>
       </plugin>
@@ -234,6 +235,17 @@
       <version>1.15.6</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.openjdk.jmh</groupId>
+      <artifactId>jmh-core</artifactId>
+      <version>1.36</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjdk.jmh</groupId>
+      <artifactId>jmh-generator-annprocess</artifactId>
+      <version>1.36</version>
+    </dependency>
+
   </dependencies>
 
   <reporting>
@@ -276,6 +288,7 @@
           <excludes>
             <exclude>site-content/**</exclude>
             <exclude>.github/workflows/sonarcloud.yml</exclude>
+            <exclude>src/test/java/org/apache/commons/validator/BenchmarkRunner.java</exclude>
           </excludes>
         </configuration>
       </plugin>
@@ -289,6 +302,7 @@
         <configuration>
           <excludes>
             <exclude>.github/workflows/sonarcloud.yml</exclude>
+            <exclude>src/test/java/org/apache/commons/validator/BenchmarkRunner.java</exclude>
           </excludes>
         </configuration>
       </plugin>
@@ -336,6 +350,19 @@
                 </configuration>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+            <configuration>
+              <annotationProcessorPaths>
+                <path>
+                  <groupId>org.openjdk.jmh</groupId>
+                  <artifactId>jmh-generator-annprocess</artifactId>
+                  <version>1.36</version>
+                </path>
+              </annotationProcessorPaths>
+            </configuration>
           </plugin>
         </plugins>
       </build>

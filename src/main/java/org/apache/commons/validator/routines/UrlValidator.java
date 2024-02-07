@@ -404,7 +404,7 @@ public class UrlValidator implements Serializable {
      * @param authority Authority value to validate, alllows IDN
      * @return true if authority (hostname and port) is valid.
      */
-    protected boolean isValidAuthority(final String authority) {
+    public boolean isValidAuthority(final String authority) {
         if (authority == null) {
             return false;
         }
