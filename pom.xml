@@ -172,7 +172,7 @@
         <artifactId>apache-rat-plugin</artifactId>
         <configuration>
           <excludes>
-            <exclude>.github/workflows/sonarcloud.yml</exclude>
+            <exclude>.github/workflows/**</exclude>
             <exclude>src/test/java/org/apache/commons/validator/BenchmarkRunner.java</exclude>
             <exclude>.evosuite/**</exclude>
             <exclude> src/test/evosuite/**</exclude>
