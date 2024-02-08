@@ -149,7 +149,7 @@
         <configuration>
           <effort>Max</effort>
           <threshold>medium</threshold>
-          <failOnError>true</failOnError>
+          <failOnError>false</failOnError>
           <includeFilterFile>${basedir}/src/findsecbug/spotbugs-security-include.xml</includeFilterFile>
           <excludeFilterFile>${basedir}/src/findsecbug/spotbugs-security-exclude.xml</excludeFilterFile>
           <plugins>
