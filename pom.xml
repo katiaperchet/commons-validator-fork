@@ -153,6 +153,21 @@
         <version>0.8.11</version>
       </plugin>
       <plugin>
+        <groupId>org.owasp</groupId>
+        <artifactId>dependency-check-maven</artifactId>
+        <version>9.0.4</version>
+        <configuration>
+          <skip>${skipDependencyCheck}</skip>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>org.apache.rat</groupId>
         <artifactId>apache-rat-plugin</artifactId>
         <configuration>
@@ -176,6 +191,7 @@
           </properties>
         </configuration>
       </plugin>
+
     </plugins>
   </build>
 
@@ -320,6 +336,7 @@
           </excludes>
         </configuration>
       </plugin>
+
     </plugins>
   </reporting>
 
