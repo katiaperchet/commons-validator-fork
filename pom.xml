@@ -191,6 +191,7 @@
             <exclude>.evosuite/**</exclude>
             <exclude> src/test/evosuite/**</exclude>
             <exclude>src/findsecbug/**</exclude>
+            <exclude>report/**</exclude>
           </excludes>
         </configuration>
       </plugin>
